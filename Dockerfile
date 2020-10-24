@@ -7,9 +7,6 @@ RUN apt-get -y update ; apt-get -y install nagios4 nsca ruby esmtp esmtp-run exi
 
 RUN adduser www-data nagios
 
-RUN rm -f /etc/nagios4/conf.d/* /etc/nagios4/objects/*
-RUN mkdir /nsca-checkresults
-
 COPY scripts /scripts
 
 COPY defaults/defaults.yml /scripts/defaults.yml

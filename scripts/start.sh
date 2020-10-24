@@ -34,9 +34,12 @@ fi
 
 sed -i "s/^decryption_method=.*/decryption_method=$NSCA_DECRYPTION_METHOD/" /etc/nsca.cfg
 
+mkdir /nsca-checkresults
 chown -R nagios:nagios /etc/nagios4 /scripts/cache /nsca-checkresults
 
 rm -f /var/run/nagios/nsca.pid
+rm -f /etc/nagios4/conf.d/* /etc/nagios4/objects/*
+rm /etc/apache2/sites-enabled/*
 
 service rsyslog start
 service apache2 start
